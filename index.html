@@ -17,16 +17,36 @@
 <body>
   <div class="app"></div>
   <script type="text/babel">
+    const pets = [
+      {name:"Meaoalot", species: "cat", age: "3", id: 12341234},
+  {name:"Woofalot", species: "dog", age: "5", id: 918293},
+  {name:"Boofalot", species: "wolf", age: "1", id: 829170283},
+  {name:"Soofalot", species: "tiger", age: "8", id: 12367490}
+    ]
+
     function OurApp() {
       return (
         <>
-          <h1 className="header">Welcome</h1>
+          <OurHeader />
           <h5>The current time is {new Date().toLocaleString()}.</h5>
           <p>This is a simple JSX.</p>
           <small>Check out previous commit to see the difference.</small>
           <p className="header">This is another paragraph.</p>
+          <ul>
+            {pets.map(function(pet) {
+              return <Pet name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
+            })}
+          </ul>
         </>
       )
+    }
+
+    function OurHeader() {
+      return <h1 className="header">Welcome</h1>
+    }
+
+    function Pet(props) {
+      return <p>{props.name} is a {props.species} and is {props.age} years old.</p>
     }
     
     setInterval(function() {

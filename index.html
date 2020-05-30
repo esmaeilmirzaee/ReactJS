@@ -33,9 +33,8 @@
           <small>Check out previous commit to see the difference.</small>
           <p className="header">This is another paragraph.</p>
           <ul>
-            {pets.map(function(pet) {
-              return <Pet name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
-            })}
+            {pets.map(pet => <Pet name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
+            )}
           </ul>
         </>
       )
@@ -46,7 +45,7 @@
     }
 
     function Pet(props) {
-      return <p>{props.name} is a {props.species} and is {props.age} years old.</p>
+      return <li>{props.name} is a {props.species} and is {props.age} years old.</li>
     }
     
     setInterval(function() {

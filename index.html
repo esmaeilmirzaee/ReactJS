@@ -19,12 +19,13 @@
   <script type="text/babel">
     function OurApp() {
       return (
-        <div>
+        <>
           <h1 className="header">Welcome</h1>
           <h5>The current time is {new Date().toLocaleString()}.</h5>
           <p>This is a simple JSX.</p>
           <small>Check out previous commit to see the difference.</small>
-        </div>
+          <p className="header">This is another paragraph.</p>
+        </>
       )
     }
     

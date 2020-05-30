@@ -12,16 +12,18 @@
   <div class="app"></div>
   <script>
     function OurApp() {
-      return [
-        React.createElement("div", null),
+      return React.createElement("div", null, [
         React.createElement("h1", null, "Welcome"),
+        React.createElement("h5", null, `The current time is ${new Date()}.`),
         React.createElement("p", null, "This is a simple ReactJS app."),
         React.createElement("small", null, "I did my best.")
-      ]
+      ])
     }
 
 
-    ReactDOM.render(OurApp(), document.querySelector(".app"))
+    
+    setInterval(function() {
+      ReactDOM.render(OurApp(), document.querySelector(".app"))}, 1000)
   </script>
 </body>
 </html>

@@ -5,22 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.1/babel.js"></script>
+  <style>
+    .header {
+      text-align: center;
+      color: orangered;
+    }
+  </style>
   <title>React</title>
 </head>
 <body>
   <div class="app"></div>
-  <script>
+  <script type="text/babel">
     function OurApp() {
-      return React.createElement("div", null, [
-        React.createElement("h1", null, "Welcome"),
-        React.createElement("h5", null, `The current time is ${new Date()}.`),
-        React.createElement("p", null, "This is a simple ReactJS app."),
-        React.createElement("small", null, "I did my best.")
-      ])
+      return (
+        <div>
+          <h1 className="header">Welcome</h1>
+          <h5>The current time is {new Date().toLocaleString()}.</h5>
+          <p>This is a simple JSX.</p>
+          <small>Check out previous commit to see the difference.</small>
+        </div>
+      )
     }
-
-
     
     setInterval(function() {
       ReactDOM.render(OurApp(), document.querySelector(".app"))}, 1000)

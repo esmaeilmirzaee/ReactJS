@@ -17,6 +17,7 @@
 <body>
   <div class="app"></div>
   <script type="text/babel">
+  const useState = React.useState
     const pets = [
       {name:"Meaoalot", species: "cat", age: "3", id: 12341234},
   {name:"Woofalot", species: "dog", age: "5", id: 918293},
@@ -31,13 +32,22 @@
           <h5>The current time is {new Date().toLocaleString()}.</h5>
           <p>This is a simple JSX.</p>
           <small>Check out previous commit to see the difference.</small>
-          <p className="header">This is another paragraph.</p>
+          <CurrentTime />
           <ul>
             {pets.map(pet => <Pet name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
             )}
           </ul>
         </>
       )
+    }
+
+    function CurrentTime() {
+      const [theTime, setTheTime] = useState(new Date().toLocaleString())
+
+      setTimeout(function() {
+        setTheTime(new Date().toLocaleString())}, 1000)
+
+      return <p>The current time is {theTime}.</p>
     }
 
     function OurHeader() {
@@ -48,8 +58,7 @@
       return <li>{props.name} is a {props.species} and is {props.age} years old.</li>
     }
     
-    setInterval(function() {
-      ReactDOM.render(OurApp(), document.querySelector(".app"))}, 1000)
+    ReactDOM.render(<OurApp />, document.querySelector(".app"))
   </script>
 </body>
 </html>

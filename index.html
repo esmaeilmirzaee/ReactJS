@@ -14,7 +14,24 @@
     <title>React</title>
   </head>
   <body>
-    <div class="container mx-auto">
+    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="front-bold text-xl">
+          React
+        </span>
+      </div>
+      <div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
+        <div class="text-sm sm:flex-grow">
+          <a href="#" class="block mt-4 ml-5 sm:inline-block sm:mt-0 text-teal-200 hover:text-white">Your Business</a>
+          <a href="#" class="block mt-4 ml-5 sm:inline-block sm:mt-0 text-teal-200 hover:text-white">Networking</a>
+          <a href="#" class="block mt-4 ml-5 sm:inline-block sm:mt-0 text-teal-200 hover:text-white">Blog</a>
+        </div>
+        <div>
+          <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 md:mt-0">Login</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container max-w-lg mx-auto mt-5">
       <div class="app"></div>
     </div>
     <script type="text/babel">
@@ -45,8 +62,21 @@
                 />
               ))}
             </ul>
+            <PetInfoAlert />
             <AddPetForm setPets={setPets} />
           </>
+        );
+      }
+
+      function PetInfoAlert() {
+        return (
+          <div
+            className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative my-5"
+            role="info"
+          >
+            <span className="font-bold"> ▶ </span>
+            <span className="block sm:inline">Add a new pet</span>
+          </div>
         );
       }
 
@@ -66,59 +96,61 @@
         }
 
         return (
-          <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <img
-              class="w-full"
-              src="./img/card-top.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4">
-              <div className="mb-4">
-                <div class="block text-gray-700 text-sm font-bold mb-2">
-                  Name
+          <div className="max-w-sm mx-auto mb-5 rounded-lg overflow-hidden shadow-xl">
+          <div className="md-flex">
+              <img
+                className="w-full"
+                src="./img/card-top.jpg"
+                alt="Sunset in the mountains"
+              />
+              <div className="px-6 py-4">
+                <div className="mb-4">
+                  <div class="block text-gray-700 text-sm font-bold mb-2">
+                    Name
+                  </div>
+                  <input
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Name"
+                  />
                 </div>
-                <input
-                  onChange={(e) => setName(e.target.value)}
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Name"
-                />
-              </div>
 
-              <div className="mb-4">
-                <div class="block text-gray-700 text-sm font-bold mb-2">
-                  Species
+                <div className="mb-4">
+                  <div class="block text-gray-700 text-sm font-bold mb-2">
+                    Species
+                  </div>
+                  <input
+                    onChange={(e) => setSpecies(e.target.value)}
+                    type="text"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Species"
+                  />
                 </div>
-                <input
-                  onChange={(e) => setSpecies(e.target.value)}
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Species"
-                />
-              </div>
 
-              <div className="mb-4">
-                <div class="block text-gray-700 text-sm font-bold mb-2">
-                  Age
+                <div className="mb-4">
+                  <div class="block text-gray-700 text-sm font-bold mb-2">
+                    Age
+                  </div>
+                  <input
+                    onChange={(e) => setAge(e.target.value)}
+                    type="text"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Age"
+                  />
                 </div>
-                <input
-                  onChange={(e) => setAge(e.target.value)}
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Age"
-                />
-              </div>
 
-              <div class="flex items-center justify-between">
-                <button
-                  onClick={handleSubmit}
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="button"
-                >
-                  Add Pet
-                </button>
+                <div class="flex items-center justify-between">
+                  <button
+                    onClick={handleSubmit}
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="button"
+                  >
+                    Add Pet
+                  </button>
+                </div>
               </div>
-            </div>
+              </div>
           </div>
         );
       }

@@ -1,0 +1,19 @@
+.header {
+  text-align: center;
+  color: orangered;
+}
+
+.btn {
+  width: 96px;
+  height: 32px;
+  background-color: #b5d7fc;
+  border: 0px;
+  border-radius: 25%;
+  margin: 5px;
+  box-shadow: grey;
+  background-image: url("../css/clap.svg");
+}
+
+.count {
+  font-weight: 900;
+}
